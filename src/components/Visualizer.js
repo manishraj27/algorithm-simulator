@@ -6,9 +6,14 @@ const Visualizer = () => {
   const [array, setArray] = useState([]);
   const [animations, setAnimations] = useState([]);
   
-  useEffect(() => {
+animations.map((value, idx) => {
+    console.log(value, idx);
+    return null; // Add a return statement
+});
+
+useEffect(() => {
     resetArray();
-  }, []);
+}, []);
 
   const resetArray = () => {
     const array = [];
