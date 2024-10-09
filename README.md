@@ -23,7 +23,7 @@ Welcome to **Algorithm Simulator**, a React-based application that visualizes an
 
 ## Demo
 
-Check out the live demo of the Algorithm Simulator [here](#) (Add your deployment link).
+Check out the live demo of the Algorithm Simulator [https://algorithmsimulator.netlify.app/](https://algorithmsimulator.netlify.app/) 
 
 ## Installation
 
