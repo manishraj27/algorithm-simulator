@@ -3,6 +3,7 @@
 ![Algorithm Simulator](https://img.shields.io/badge/React-App-blue) ![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-Contributions%20Welcome-orange)
 
 Welcome to **Algorithm Simulator**, a React-based application that visualizes and simulates different algorithms. This project aims to help learners and developers understand the inner workings of various algorithms by providing an interactive and visual platform.
+It is designed to simulate various computer science algorithms visually. The goal is to help users understand and visualize the internal workings of popular algorithms such as sorting, searching, graph traversal, and more.
 
 ## Table of Contents
 
