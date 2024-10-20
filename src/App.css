@@ -1,20 +1,32 @@
-.App {
-  text-align: center;
+/* App.css */
+.navbar {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  background-color: #282c34;
 }
-
-.App-header {
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: aliceblue;
   background-color: #282c34;
   padding: 20px;
+}
+
+.navbar button {
+  background-color: #4caf50; /* Green */
+  border: none;
   color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.controls {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.navbar button:hover {
+  background-color: #45a049;
 }
 
-button {
-  margin: 5px;
-}

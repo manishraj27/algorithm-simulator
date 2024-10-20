@@ -13,6 +13,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Algorithm Simulator</h1>
+        <nav className="navbar">
+          <button onClick={() => handleAlgorithmChange("bubbleSort")}>
+            Bubble Sort
+          </button>
+          <button onClick={() => handleAlgorithmChange("mergeSort")}>
+            Merge Sort
+          </button>
+        </nav>
       </header>
       <Visualizer selectedAlgorithm={selectedAlgorithm} />
     </div>
