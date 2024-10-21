@@ -20,6 +20,9 @@ function App() {
           <button onClick={() => handleAlgorithmChange("mergeSort")}>
             Merge Sort
           </button>
+          <button onClick={() => handleAlgorithmChange("shellSort")}>
+            Shell Sort
+          </button>
         </nav>
       </header>
       <Visualizer selectedAlgorithm={selectedAlgorithm} />
