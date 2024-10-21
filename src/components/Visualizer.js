@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { bubbleSort } from "../algorithms/BubbleSort";
 import { mergeSort } from "../algorithms/MergeSort";
 import "./Visualizer.css";
+import { selectionSort } from "../algorithms/SelectionSort";
 
 const Visualizer = ({ selectedAlgorithm }) => {
   const [array, setArray] = useState([]);
@@ -24,16 +25,18 @@ const Visualizer = ({ selectedAlgorithm }) => {
       animations = bubbleSort([...array]);
     } else if (selectedAlgorithm === "mergeSort") {
       animations = mergeSort([...array]);
+    } else if (selectedAlgorithm === "selectionSort") {
+      animations = selectionSort([...array]);
     }
     animateSort(animations);
   };
 
   const animateSort = (animations) => {
+    const arrayBars = document.getElementsByClassName("array-bar");
+
     for (let i = 0; i < animations.length; i++) {
-      const isColorChange = i % 3 !== 2; // For merge sort animations
-      const arrayBars = document.getElementsByClassName("array-bar");
       if (selectedAlgorithm === "mergeSort") {
-        if (isColorChange) {
+        if (i % 3 !== 2) {
           const [barOneIdx, barTwoIdx] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           const barTwoStyle = arrayBars[barTwoIdx].style;
@@ -59,6 +62,29 @@ const Visualizer = ({ selectedAlgorithm }) => {
           barOneStyle.height = barTwoStyle.height;
           barTwoStyle.height = tempHeight;
         }, i * 10);
+      } else if (selectedAlgorithm === "selectionSort") {
+        const [barOneIdx, barTwoIdx, swap] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        
+        setTimeout(() => {
+          // Highlight the bars being compared
+          barOneStyle.backgroundColor = "red";
+          barTwoStyle.backgroundColor = "red";
+          
+          // If it's a swap operation, exchange the heights
+          if (swap) {
+            const tempHeight = barOneStyle.height;
+            barOneStyle.height = barTwoStyle.height;
+            barTwoStyle.height = tempHeight;
+          }
+          
+          // Reset the color after a short delay
+          setTimeout(() => {
+            barOneStyle.backgroundColor = "turquoise";
+            barTwoStyle.backgroundColor = "turquoise";
+          }, 50);
+        }, i * 20);
       }
     }
   };
@@ -74,10 +100,7 @@ const Visualizer = ({ selectedAlgorithm }) => {
       ))}
       <div className="controls">
         <button onClick={resetArray}>Generate New Array</button>
-        <button onClick={visualizeSort}>
-          Visualize{" "}
-          {selectedAlgorithm === "bubbleSort" ? "Bubble Sort" : "Merge Sort"}
-        </button>
+        <button onClick={visualizeSort}>Visualize {selectedAlgorithm}</button>
       </div>
     </div>
   );
